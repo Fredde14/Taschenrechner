@@ -30,10 +30,11 @@ st.markdown(
         background-color: #2D2346;
     }
     
-    /* Display-Design */
+    /* Display-Design: Textfarbe explizit auf Weiß gesetzt */
     .stTextInput input {
         background-color: #3F3356 !important;
-        color: #F8F9FA !important;
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
         font-size: 2.5rem !important;
         font-weight: bold;
         text-align: right;
@@ -98,9 +99,9 @@ def calculate():
     st.session_state.expression = "Fehler"
 
 
-# Display
+# Display (ohne 'disabled=True', damit das CSS-Styling für die weiße Schrift perfekt greift)
 display_val = st.session_state.expression if st.session_state.expression else "0"
-st.text_input("", value=display_val, disabled=True, label_visibility="collapsed")
+st.text_input("", value=display_val, label_visibility="collapsed", on_change=lambda: None)
 
 st.write("")  # kleiner Abstand
 
