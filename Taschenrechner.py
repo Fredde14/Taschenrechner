@@ -32,17 +32,18 @@ st.markdown(
         background-size: 24px 24px;
     }
     
-    /* Styling für den PocketCalc-Titel (Reines Weiß) */
+    /* Styling für den PocketCalc-Titel (Reines Weiß ohne Schatten/Filter) */
     .pocketcalc-title {
         text-align: center;
-        color: #FFFFFF;
+        color: #FFFFFF !important;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Segoe UI', sans-serif;
         font-size: 2.2rem;
         font-weight: 800;
         letter-spacing: 2px;
         text-transform: uppercase;
         margin-bottom: 0px;
-        text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+        text-shadow: none !important;
+        filter: none !important;
     }
     
     /* Display-Design: Textfarbe explizit auf Weiß gesetzt */
@@ -82,9 +83,9 @@ st.markdown(
 if "expression" not in st.session_state:
     st.session_state.expression = ""
 
-# 4. App Header ohne Emojis
+# 4. App Header mit klarem weißem Titel und Stern-Emojis
 st.markdown(
-    "<h2 class='pocketcalc-title'>PocketCalc</h2>",
+    "<h2 class='pocketcalc-title'>✨ PocketCalc ✨</h2>",
     unsafe_allow_html=True,
 )
 st.markdown(
