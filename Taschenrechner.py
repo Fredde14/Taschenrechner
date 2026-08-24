@@ -81,22 +81,22 @@ st.markdown(
 
 # Funktionen für die Logik
 def add_to_expr(value):
-  st.session_state.expression += str(value)
+    st.session_state.expression += str(value)
 
 
 def clear_expr():
-  st.session_state.expression = ""
+    st.session_state.expression = ""
 
 
 def calculate():
-  try:
-    # Sichere Auswertung des mathematischen Ausdrucks
-    result = str(eval(st.session_state.expression))
-    st.session_state.expression = result
-  except ZeroDivisionError:
-    st.session_state.expression = "Fehler (Div/0)"
-  except Exception:
-    st.session_state.expression = "Fehler"
+    try:
+        # Sichere Auswertung des mathematischen Ausdrucks
+        result = str(eval(st.session_state.expression))
+        st.session_state.expression = result
+    except ZeroDivisionError:
+        st.session_state.expression = "Fehler (Div/0)"
+    except Exception:
+        st.session_state.expression = "Fehler"
 
 
 # Display (ohne 'disabled=True', damit das CSS-Styling für die weiße Schrift perfekt greift)
@@ -105,94 +105,94 @@ st.text_input("", value=display_val, label_visibility="collapsed", on_change=lam
 
 st.write("")  # kleiner Abstand
 
-# 5. Tasten-Layout (Grid)
+# 5. Tasten-Layout (Grid mit Zahlen 1-9 von oben nach unten)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-  if st.button("C", use_container_width=True):
-    clear_expr()
-    st.rerun()
+    if st.button("C", use_container_width=True):
+        clear_expr()
+        st.rerun()
 with col2:
-  if st.button("(", use_container_width=True):
-    add_to_expr("(")
-    st.rerun()
+    if st.button("(", use_container_width=True):
+        add_to_expr("(")
+        st.rerun()
 with col3:
-  if st.button(")", use_container_width=True):
-    add_to_expr(")")
-    st.rerun()
+    if st.button(")", use_container_width=True):
+        add_to_expr(")")
+        st.rerun()
 with col4:
-  if st.button("÷", use_container_width=True):
-    add_to_expr("/")
-    st.rerun()
+    if st.button("÷", use_container_width=True):
+        add_to_expr("/")
+        st.rerun()
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-  if st.button("7", use_container_width=True):
-    add_to_expr("7")
-    st.rerun()
+    if st.button("1", use_container_width=True):
+        add_to_expr("1")
+        st.rerun()
 with col2:
-  if st.button("8", use_container_width=True):
-    add_to_expr("8")
-    st.rerun()
+    if st.button("4", use_container_width=True):
+        add_to_expr("4")
+        st.rerun()
 with col3:
-  if st.button("9", use_container_width=True):
-    add_to_expr("9")
-    st.rerun()
+    if st.button("7", use_container_width=True):
+        add_to_expr("7")
+        st.rerun()
 with col4:
-  if st.button("×", use_container_width=True):
-    add_to_expr("*")
-    st.rerun()
+    if st.button("×", use_container_width=True):
+        add_to_expr("*")
+        st.rerun()
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-  if st.button("4", use_container_width=True):
-    add_to_expr("4")
-    st.rerun()
+    if st.button("2", use_container_width=True):
+        add_to_expr("2")
+        st.rerun()
 with col2:
-  if st.button("5", use_container_width=True):
-    add_to_expr("5")
-    st.rerun()
+    if st.button("5", use_container_width=True):
+        add_to_expr("5")
+        st.rerun()
 with col3:
-  if st.button("6", use_container_width=True):
-    add_to_expr("6")
-    st.rerun()
+    if st.button("8", use_container_width=True):
+        add_to_expr("8")
+        st.rerun()
 with col4:
-  if st.button("-", use_container_width=True):
-    add_to_expr("-")
-    st.rerun()
+    if st.button("-", use_container_width=True):
+        add_to_expr("-")
+        st.rerun()
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-  if st.button("1", use_container_width=True):
-    add_to_expr("1")
-    st.rerun()
+    if st.button("3", use_container_width=True):
+        add_to_expr("3")
+        st.rerun()
 with col2:
-  if st.button("2", use_container_width=True):
-    add_to_expr("2")
-    st.rerun()
+    if st.button("6", use_container_width=True):
+        add_to_expr("6")
+        st.rerun()
 with col3:
-  if st.button("3", use_container_width=True):
-    add_to_expr("3")
-    st.rerun()
+    if st.button("9", use_container_width=True):
+        add_to_expr("9")
+        st.rerun()
 with col4:
-  if st.button("+", use_container_width=True):
-    add_to_expr("+")
-    st.rerun()
+    if st.button("+", use_container_width=True):
+        add_to_expr("+")
+        st.rerun()
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-  if st.button("0", use_container_width=True):
-    add_to_expr("0")
-    st.rerun()
+    if st.button("0", use_container_width=True):
+        add_to_expr("0")
+        st.rerun()
 with col2:
-  if st.button(".", use_container_width=True):
-    add_to_expr(".")
-    st.rerun()
+    if st.button(".", use_container_width=True):
+        add_to_expr(".")
+        st.rerun()
 with col3:
-  if st.button("⌫", use_container_width=True):
-    st.session_state.expression = st.session_state.expression[:-1]
-    st.rerun()
+    if st.button("⌫", use_container_width=True):
+        st.session_state.expression = st.session_state.expression[:-1]
+        st.rerun()
 with col4:
-  if st.button("=", use_container_width=True):
-    calculate()
-    st.rerun()
+    if st.button("=", use_container_width=True):
+        calculate()
+        st.rerun()
