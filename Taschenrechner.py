@@ -32,17 +32,17 @@ st.markdown(
         background-size: 24px 24px;
     }
     
-    /* Styling für den PocketCalc-Titel */
+    /* Styling für den PocketCalc-Titel (Helle, gut sichtbare Farbe & Leuchteffekt) */
     .pocketcalc-title {
         text-align: center;
-        color: #E0A96D;
+        color: #FFE58F;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Segoe UI', sans-serif;
         font-size: 2.2rem;
         font-weight: 800;
         letter-spacing: 2px;
         text-transform: uppercase;
         margin-bottom: 0px;
-        text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+        text-shadow: 0px 0px 10px rgba(255, 229, 143, 0.4);
     }
     
     /* Display-Design: Textfarbe explizit auf Weiß gesetzt */
@@ -53,25 +53,25 @@ st.markdown(
         font-size: 2.5rem !important;
         font-weight: bold;
         text-align: right;
-        border-radius: 15px !important;
+        border-radius: 18px !important;
         border: 2px solid #624CAB !important;
         padding: 10px !important;
     }
     
-    /* Button-Styling (Verspielt & Professionell) */
+    /* Button-Styling (Sanft abgerundet & Verspielt) */
     div.stButton > button {
         width: 100%;
         height: 65px;
         font-size: 1.5rem;
         font-weight: bold;
-        border-radius: 16px;
+        border-radius: 25px; /* Stärker abgerundete Form */
         border: none;
         box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         transition: all 0.1s ease;
     }
     
     div.stButton > button:hover {
-        transform: scale(0.98);
+        transform: scale(0.96);
     }
     </style>
     """,
@@ -82,13 +82,13 @@ st.markdown(
 if "expression" not in st.session_state:
     st.session_state.expression = ""
 
-# 4. App Header
+# 4. App Header mit hellem Titel und passendem Rechner-Smiley
 st.markdown(
-    "<h2 class='pocketcalc-title'>✨ PocketCalc ✨</h2>",
+    "<h2 class='pocketcalc-title'>✨ 🧮 PocketCalc 🧮 ✨</h2>",
     unsafe_allow_html=True,
 )
 st.markdown(
-    "<p style='text-align: center; color: #B3A4C0; font-size: 0.9rem; margin-bottom: 20px;'>Einfach. Verspielt. Überall dabei.</p>",
+    "<p style='text-align: center; color: #D4C5E2; font-size: 0.9rem; margin-bottom: 20px;'>Einfach. Verspielt. Überall dabei.</p>",
     unsafe_allow_html=True,
 )
 
@@ -210,3 +210,9 @@ with col4:
     if st.button("=", use_container_width=True):
         calculate()
         st.rerun()
+```eof
+
+### Gemachte Anpassungen:
+1. **Helle Schriftfarbe:** Der Titel leuchtet jetzt in einem hellen, warmen Sonnengelb (`#FFE58F`) mit leichtem Glüheffekt, sodass er auf dem dunklen lila Hintergrund hervorragend lesbar ist.
+2. **Ergänzter Smiley:** Es wurden Rechner-Emojis (`🧮`) im Titel hinzugefügt (`✨ 🧮 PocketCalc 🧮 ✨`).
+3. **Abgerundete Buttons:** Der `border-radius` der Tasten wurde auf `25px` erhöht, wodurch sie jetzt eine deutlich weichere, abgerundete Form haben.
