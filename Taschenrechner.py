@@ -25,9 +25,24 @@ st.markdown(
         margin: auto;
     }
     
-    /* Hintergrund der App */
+    /* Hintergrund der App mit lila Punkten (Polka Dot Pattern) */
     .stApp {
-        background-color: #2D2346;
+        background-color: #1e1830;
+        background-image: radial-gradient(#624CAB 2px, transparent 2px);
+        background-size: 24px 24px;
+    }
+    
+    /* Styling für den PocketCalc-Titel */
+    .pocketcalc-title {
+        text-align: center;
+        color: #E0A96D;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Segoe UI', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
     }
     
     /* Display-Design: Textfarbe explizit auf Weiß gesetzt */
@@ -69,11 +84,11 @@ if "expression" not in st.session_state:
 
 # 4. App Header
 st.markdown(
-    "<h2 style='text-align: center; color: #E0A96D; font-family: sans-serif; margin-bottom: 0px;'>✨ PocketCalc ✨</h2>",
+    "<h2 class='pocketcalc-title'>✨ PocketCalc ✨</h2>",
     unsafe_allow_html=True,
 )
 st.markdown(
-    "<p style='text-align: center; color: #9A8C98; font-size: 0.9rem; margin-bottom: 20px;'>Einfach. Verspielt. Überall dabei.</p>",
+    "<p style='text-align: center; color: #B3A4C0; font-size: 0.9rem; margin-bottom: 20px;'>Einfach. Verspielt. Überall dabei.</p>",
     unsafe_allow_html=True,
 )
 
@@ -99,7 +114,9 @@ def calculate():
 
 # Display
 display_val = st.session_state.expression if st.session_state.expression else "0"
-st.text_input("", value=display_val, label_visibility="collapsed", on_change=lambda: None)
+st.text_input(
+    "", value=display_val, label_visibility="collapsed", on_change=lambda: None
+)
 
 st.write("")  # kleiner Abstand
 
