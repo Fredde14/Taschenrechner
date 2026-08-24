@@ -55,7 +55,6 @@ st.markdown(
         transition: all 0.1s ease;
     }
     
-    /* Zahlen-Buttons (Mint) */
     div.stButton > button:hover {
         transform: scale(0.98);
     }
@@ -90,7 +89,6 @@ def clear_expr():
 
 def calculate():
     try:
-        # Sichere Auswertung des mathematischen Ausdrucks
         result = str(eval(st.session_state.expression))
         st.session_state.expression = result
     except ZeroDivisionError:
@@ -99,15 +97,14 @@ def calculate():
         st.session_state.expression = "Fehler"
 
 
-# Display (ohne 'disabled=True', damit das CSS-Styling für die weiße Schrift perfekt greift)
+# Display
 display_val = st.session_state.expression if st.session_state.expression else "0"
 st.text_input("", value=display_val, label_visibility="collapsed", on_change=lambda: None)
 
 st.write("")  # kleiner Abstand
 
-# 5. Tasten-Layout (Grid mit Zahlen 1-9 von oben nach unten)
+# 5. Tasten-Layout (Klassisches Raster: Zeile für Zeile)
 col1, col2, col3, col4 = st.columns(4)
-
 with col1:
     if st.button("C", use_container_width=True):
         clear_expr()
@@ -131,12 +128,12 @@ with col1:
         add_to_expr("1")
         st.rerun()
 with col2:
-    if st.button("4", use_container_width=True):
-        add_to_expr("4")
+    if st.button("2", use_container_width=True):
+        add_to_expr("2")
         st.rerun()
 with col3:
-    if st.button("7", use_container_width=True):
-        add_to_expr("7")
+    if st.button("3", use_container_width=True):
+        add_to_expr("3")
         st.rerun()
 with col4:
     if st.button("×", use_container_width=True):
@@ -145,16 +142,16 @@ with col4:
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    if st.button("2", use_container_width=True):
-        add_to_expr("2")
+    if st.button("4", use_container_width=True):
+        add_to_expr("4")
         st.rerun()
 with col2:
     if st.button("5", use_container_width=True):
         add_to_expr("5")
         st.rerun()
 with col3:
-    if st.button("8", use_container_width=True):
-        add_to_expr("8")
+    if st.button("6", use_container_width=True):
+        add_to_expr("6")
         st.rerun()
 with col4:
     if st.button("-", use_container_width=True):
@@ -163,12 +160,12 @@ with col4:
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    if st.button("3", use_container_width=True):
-        add_to_expr("3")
+    if st.button("7", use_container_width=True):
+        add_to_expr("7")
         st.rerun()
 with col2:
-    if st.button("6", use_container_width=True):
-        add_to_expr("6")
+    if st.button("8", use_container_width=True):
+        add_to_expr("8")
         st.rerun()
 with col3:
     if st.button("9", use_container_width=True):
